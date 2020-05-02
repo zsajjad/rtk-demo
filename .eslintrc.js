@@ -78,6 +78,7 @@ module.exports = {
     'redux-saga/no-yield-in-race': 2,
     'redux-saga/yield-effects': 2,
     'require-yield': 0,
+    'react/jsx-props-no-spreading': 0,
   },
   settings: {
     'import/resolver': {
