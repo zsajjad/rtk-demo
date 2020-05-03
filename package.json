@@ -136,6 +136,7 @@
     "jest-cli": "25.5.4",
     "jest-dom": "4.0.0",
     "jest-styled-components": "7.0.2",
+    "kerosene": "http://gitlab.com/fetchsky/kerosene",
     "lint-staged": "10.2.2",
     "ngrok": "3.2.7",
     "node-plop": "0.25.0",
