@@ -65,6 +65,8 @@
   },
   "dependencies": {
     "@babel/polyfill": "7.8.7",
+    "@reduxjs/toolkit": "^1.3.5",
+    "@testing-library/react": "^10.0.4",
     "chalk": "^4.0.0",
     "compression": "1.7.4",
     "connected-react-router": "6.8.0",
@@ -87,6 +89,7 @@
     "react-redux": "7.2.0",
     "react-router-dom": "5.1.2",
     "redux": "4.0.5",
+    "redux-injectors": "^1.3.0",
     "redux-saga": "1.1.3",
     "reselect": "4.0.0",
     "sanitize.css": "11.0.0",

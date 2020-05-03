@@ -2,11 +2,9 @@
  * Combine all reducers in this file and export the combined reducers.
  */
 
-import { combineReducers } from 'redux';
-import { connectRouter } from 'connected-react-router';
+import { combineReducers } from '@reduxjs/toolkit';
 
-import history from 'utils/history';
-import languageProviderReducer from 'containers/LanguageProvider/reducer';
+import { reducer as languageProviderReducer } from 'containers/LanguageProvider/slice';
 
 /**
  * Merges the main reducer with the router state and dynamically injected reducers
@@ -14,7 +12,6 @@ import languageProviderReducer from 'containers/LanguageProvider/reducer';
 export default function createReducer(injectedReducers = {}) {
   const rootReducer = combineReducers({
     language: languageProviderReducer,
-    router: connectRouter(history),
     ...injectedReducers,
   });
 

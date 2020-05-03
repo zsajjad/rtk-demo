@@ -1,9 +1,10 @@
-import { createSelector } from 'reselect';
-import { initialState } from './reducer';
+import { createSelector } from '@reduxjs/toolkit';
+import { initialState } from './slice';
 
 /**
- * Direct selector to the languageToggle state domain
+ * Direct selector to the language domain
  */
+
 const selectLanguage = (state) => state.language || initialState;
 
 /**
