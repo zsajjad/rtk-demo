@@ -4,15 +4,9 @@
  *
  */
 
-// import peekabooService, { getParams } from 'services/peekaboo';
+import request from 'utils/request';
 
 export function fetch() {
-  //  const params = {
-  //    ...getParams(options),
-  //  };
-  //  return peekabooService({
-  //    method: 'GET',
-  //    url: `/api/v5/entity/${entityId}/branch/${branchId}`,
-  //    params,
-  //  });
+  const requestURL = `https://hacker-news.firebaseio.com/v0/user/zsajjad.json?print=pretty`;
+  return request(requestURL);
 }

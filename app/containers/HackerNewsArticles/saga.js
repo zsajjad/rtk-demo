@@ -12,9 +12,9 @@ import * as api from './api';
 export const fetchSaga = function* fetch({ payload }) {
   try {
     const data = yield call(api.fetch, payload);
-    yield put(actions.fetchSuccess(data));
+    yield put(actions.fetchSuccess({ data }));
   } catch (error) {
-    yield put(actions.fetchFailure(error));
+    yield put(actions.fetchFailure({ error }));
   }
 };
 // Individual exports for testing

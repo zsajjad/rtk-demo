@@ -11,11 +11,22 @@ import { useHackerNewsArticles } from 'containers/HackerNewsArticles';
 import messages from './messages';
 
 export default function HomePage() {
-  const hackerNewsArticles = useHackerNewsArticles();
-  console.log({ hackerNewsArticles });
+  const hackerNews = useHackerNewsArticles();
+
+  if (hackerNews.loading) {
+    return 'loading...';
+  }
+
+  if (hackerNews.error) {
+    return 'Something went wrong';
+  }
+
   return (
-    <h1>
-      <FormattedMessage {...messages.header} />
-    </h1>
+    <>
+      <h1>
+        <FormattedMessage {...messages.header} />
+      </h1>
+      <p>{JSON.stringify(hackerNews?.data)}</p>
+    </>
   );
 }

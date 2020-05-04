@@ -6,7 +6,7 @@
 
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useSelector, useDispatch } from 'react-redux';
+import { shallowEqual, useSelector, useDispatch } from 'react-redux';
 import { useInjectReducer, useInjectSaga } from 'redux-injectors';
 
 import makeSelectHackerNewsArticles from './selectors';
@@ -20,7 +20,7 @@ export function useHackerNewsArticles({ limit = 20, offset = 0 } = {}) {
   useInjectSaga({ key: STORE_KEY, saga });
 
   const dispatch = useDispatch();
-  const store = useSelector(makeSelectHackerNewsArticles());
+  const store = useSelector(makeSelectHackerNewsArticles(), shallowEqual);
 
   useEffect(() => {
     if (!store?.data?.length && !store?.loading) {
