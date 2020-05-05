@@ -10,14 +10,12 @@ import { shallowEqual, useSelector, useDispatch } from 'react-redux';
 import { useInjectReducer, useInjectSaga } from 'redux-injectors';
 
 import makeSelectHackerNewsArticles from './selectors';
-import reducer from './reducer';
 import saga from './saga';
-import { fetch } from './actions';
-import { STORE_KEY } from './constants';
+import { name, reducer, actions } from './slice';
 
 export function useHackerNewsArticles({ limit = 20, offset = 0 } = {}) {
-  useInjectReducer({ key: STORE_KEY, reducer });
-  useInjectSaga({ key: STORE_KEY, saga });
+  useInjectReducer({ key: name, reducer });
+  useInjectSaga({ key: name, saga });
 
   const dispatch = useDispatch();
   const store = useSelector(makeSelectHackerNewsArticles(), shallowEqual);
@@ -25,7 +23,7 @@ export function useHackerNewsArticles({ limit = 20, offset = 0 } = {}) {
   useEffect(() => {
     if (!store?.data?.length && !store?.loading) {
       dispatch(
-        fetch({
+        actions.fetch({
           offset,
           limit,
         }),

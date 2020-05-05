@@ -1,13 +1,11 @@
 import { createSelector } from 'reselect';
-import { initialState } from './reducer';
-import { STORE_KEY } from './constants';
+import { name, initialState } from './slice';
 
 /**
  * Direct selector to the hackerNewsArticles state domain
  */
 
-const selectHackerNewsArticlesDomain = (state) =>
-  state[STORE_KEY] || initialState;
+const selectHackerNewsArticlesDomain = (state) => state[name] || initialState;
 
 /**
  * Other specific selectors
